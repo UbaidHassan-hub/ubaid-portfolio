@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login + Portfolio</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f4f4;
+    }
+
+    /* Centered login box */
+    .login-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .login-box form {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+      text-align: center;
+      width: 300px;
+    }
+
+    input {
+      margin: 10px 0;
+      padding: 8px;
+      width: 90%;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      padding: 10px 20px;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #0056b3;
+    }
+
+    #message {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    /* Portfolio (hidden by default) */
+    .portfolio {
+      display: none;
+    }
+
+    header {
+  
+      background: #007bff;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    section {
+      padding: 40px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    h2 {
+      color: #007bff;
+    }
+
+    .project {
+      background: white;
+      padding: 15px;
+      margin: 15px 0;
+      border-radius: 8px;
+      box-shadow: 0px 0px 5px rgba(0,0,0,0.1);
+    }
+
+    footer {
+      background: #222;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      margin-top: 20px;
+    }
+
+    .logout {
+      margin-top: 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Login Section -->
+  <div class="login-box" id="loginBox">
+    <form onsubmit="return checkLogin(event)">
+      <h2>Login</h2>
+      <input type="text" id="username" placeholder="Username" required><br>
+      <input type="password" id="password" placeholder="Password" required><br>
+      <button type="submit">Login</button>
+      <p id="message"></p>
+    </form>
+  </div>
+
+  <!-- Portfolio Section -->
+  <div class="portfolio" id="portfolio">
+    <header>
+      <header>
+  <img src="welcome to my Computer science world/myphoto.jpg.jpeg" alt="Ubaid Hassan" width="150" height="150" style="border-radius: 50%; border: 3px solid white;">
+
+
+      <h1>Welcome to My Portfolio 🚀</h1>
+      <p>Hello, I'm Ubaid — a Computer Science Student</p>
+    </header>
+
+    <section>
+      <h2>About Me</h2>
+      <p>I am passionate about web development and programming. This is my portfolio where you can see my projects and contact me.</p>
+    </section>
+
+    <section>
+      <h2>Projects</h2>
+      <div class="project">
+        <h3>📌 Project 1: Portfolio Website</h3>
+        <p>A personal portfolio built with HTML, CSS, and JavaScript.</p>
+      </div>
+      <div class="project">
+        <h3>📌 Project 2: To-Do App</h3>
+        <p>A simple task manager with local storage.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:youremail@example.com">youremail@example.com</a></p>
+    </section>
+
+    <div class="logout">
+      <button onclick="logout()">Logout</button>
+    </div>
+
+    <footer>
+      <p>© 2025 My Portfolio | Made with ❤️</p>
+    </footer>
+  </div>
+
+  <script>
+    function checkLogin(event) {
+      event.preventDefault();
+
+      let username = document.getElementById("username").value;
+      let password = document.getElementById("password").value;
+
+      if(username === "admin" && password === "1234") {
+        document.getElementById("message").innerText = "✅ Login Successful!";
+        document.getElementById("message").style.color = "green";
+
+        setTimeout(() => {
+          document.getElementById("loginBox").style.display = "none";
+          document.getElementById("portfolio").style.display = "block";
+        }, 800);
+      } else {
+        document.getElementById("message").innerText = "❌ Invalid Username or Password";
+        document.getElementById("message").style.color = "red";
+      }
+    }
+
+    function logout() {
+      document.getElementById("portfolio").style.display = "none";
+      document.getElementById("loginBox").style.display = "flex";
+      document.getElementById("username").value = "";
+      document.getElementById("password").value = "";
+      document.getElementById("message").innerText = "";
+    }
+  </script>
+
+</body>
+</html>
